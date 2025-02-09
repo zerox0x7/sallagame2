@@ -1,5 +1,4 @@
-
-    <style>
+<style>
      
 
     
@@ -140,6 +139,18 @@
             border: 1px solid #2B3A5A;
         }
 
+        .duty-btn {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 18px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #2B3A5A;
+        }
+
         .duty-item:hover {
             transform: translateX(8px);
             border-color: #4CAF50;
@@ -187,6 +198,10 @@
             from { opacity: 0; transform: translateX(20px); }
             to { opacity: 1; transform: translateX(0); }
         }
+
+        .duty-item span {
+    pointer-events: none;
+  }
     </style>
 
 <button class="duty-toggle">
@@ -222,12 +237,12 @@
                 <span>Review 5 different stores</span>
                 <div class="duty-progress"></div>
             </div>
-            <div class="duty-item">
+            <div class="duty-item"  onclick="likePro_toggleProductBox()">
                 <i class="fas fa-thumbs-up review-duty duty-icon"></i>
                 <span>Like 10 store products</span>
                 <div class="duty-progress"></div>
             </div>
-            <div class="duty-item">
+            <div class="duty-item" onclick="likePro_toggleReviewBox()">
                 <i class="fas fa-comment-dots review-duty duty-icon"></i>
                 <span>Write 3 detailed reviews</span>
                 <div class="duty-progress"></div>
@@ -247,17 +262,20 @@
                 <span>Share store link 3 times</span>
                 <div class="duty-progress"></div>
             </div>
-            <div class="duty-item " >
+            <div class="duty-item "  id="rami_inviteFriendsBtn" onclick="rami_toggleInviteFriendsBox()" >
                 <i class="fas fa-users share-duty duty-icon"></i>
                 <span>Invite 5 friends</span>
                 <div class="duty-progress"></div>
             </div>
-            <div class="duty-item"> 
+
+       
+            <div class="duty-item " id="tiktok_subscribeBtn" onclick="tiktok_toggleSubscribeBox()"> 
                 <i class="fa-brands fa-tiktok share-duty duty-icon"></i>
                 <span>Social media share</span>
                 <div class="duty-progress"></div>
             </div>
-            <div class="duty-item">
+
+            <div class="duty-item" id="whatsapp_shareBox" onclick="whatsapp_toggleShareBox()">
                 <i class="fa-brands fa-whatsapp share-duty duty-icon"></i>
                 <span>Create referral link</span>
                 <div class="duty-progress"></div>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -162,14 +161,17 @@
     <!-- Sidebar Content (Empty) -->
   </div>
 
-  @livewire('duties')
- 
-
   @livewire('rate-store')
+  @livewire('detailed-reviews')
+  @livewire('invite-friend')
+  @livewire('tiktok-subscribe')
+  @livewire('like-products')
 
+  <!-- <button onclick="toggleReviewsBox()" class="button-primary">
+    Write Reviews
+  </button> -->
 
-  
- 
+  @livewire('duties')
 
   <script>
 
@@ -260,6 +262,14 @@
     goldenOverlay2.addEventListener("click", closeSidebar2);
     // goldenExitIcon2.addEventListener("click", closeSidebar);
       // end duty button
+
+
+
+
+
+ 
+
+
   </script>
 </body>
 </html>

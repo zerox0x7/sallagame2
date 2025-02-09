@@ -6,16 +6,21 @@
             padding: 2rem;
             width: 350px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            position: relative;
-            transform: scale(0.9);
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
             opacity: 0;
             transition: all 0.3s ease;
             color: white; /* Default text color */
+            z-index: 1000;
+            display: none;
         }
 
         .custom-rating-box.active {
-            transform: translate(143%, 30%);
+            transform: translate(-50%, -50%) scale(1);
             opacity: 1;
+            display: block;
         }
 
         .custom-store-header {
@@ -150,11 +155,15 @@
         let customCurrentRating = 0;
         let isCustomBoxVisible = false;
 
-        function toggleCustomRatingBox() {
+        window.toggleCustomRatingBox = function() {
+            const box = document.getElementById('customRatingBox');
+            if (!box) return;
             
-            const box = document.querySelector('.customRatingBox');
-            isCustomBoxVisible = !isCustomBoxVisible;
-            box.classList.toggle('active');
+            if (!box.classList.contains('active')) {
+                box.classList.add('active');
+            } else {
+                box.classList.remove('active');
+            }
         }
 
         function copyCustomLink(event) {
@@ -186,18 +195,14 @@
             customCurrentRating = 0;
         }
 
-        document.addEventListener('click', (event) => {
+        document.addEventListener('click', function(event) {
             const box = document.getElementById('customRatingBox');
-            const btn = document.querySelector('.custom-floating-btn');
-
-            if (
-                box &&
-                btn &&
-                !box.contains(event.target) &&
-                !btn.contains(event.target) &&
-                isCustomBoxVisible
-            ) {
-                toggleCustomRatingBox();
+            if (!box) return;
+            
+            if (box.classList.contains('active') && 
+                !box.contains(event.target) && 
+                !event.target.matches('[onclick="toggleCustomRatingBox()"]')) {
+                box.classList.remove('active');
             }
         });
     </script>
